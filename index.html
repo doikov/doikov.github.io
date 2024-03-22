@@ -118,6 +118,13 @@ a:hover {
 
 .main h4, .main h3 { color: #012042; }
 
+.main ul { margin-bottom: -10px; }
+
+.bonus {
+    color: green;
+    font-weight: bold;
+}
+
 </style>
 </head>
 
@@ -160,20 +167,24 @@ a:hover {
 
         <br/>
         <br/>
-        <table cellpadding="0">
+        <table cellpadding="0" style="width:100%;">
         <tr><td>
                 I am excited to explore provably efficient optimization algorithms
         that exploit the problem structure and combine ideas from various fields.
         One of my areas of expertise is <i>second-order methods</i> and its <i>global complexity bounds</i>. I believe that bridging the gap between the second-order optimization theory
         and the best known computational practices is what
-        can lead us to new achievements in the training process of our models.
+        will lead us to new achievements in the training process of our models.
+        <br/>
+        <br/>
         </td>
-        <td style="vertical-align: top; padding-left: 5px;" >
+        <td style="vertical-align: top; padding-left: 5px;">
         <img src="trajectory.png" alt="trajectory" height="120" width="160" />
         </td></tr>
         </table>
 
-        <br/>
+        
+        <table cellpadding="0" style="width:100%;">
+        <tr><td>
         More broadly, I am interested in pursuing the following areas:
         <ul>
             <li>Optimization theory and algorithms</li>
@@ -181,6 +192,14 @@ a:hover {
             <li>Applications in statistics and machine learning</li>
             <li>Scalable, distributed, and decentralized optimization</li>
         </ul>
+        <br/>
+        </td>
+        <td style="vertical-align: top; text-align: right;">
+        <img src="nonconvex.png" alt="non-convex" height="172" width="180" />
+        </td></tr>
+        </table>
+
+
         
         I defended my PhD in 2021 at <a href="https://uclouvain.be/en/index.html">UCLouvain</a>, Belgium, supervised by 
         <a href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>.
@@ -192,117 +211,143 @@ a:hover {
         I received a BSc degree in Computational Mathematics and Cybernetics
         from <a href="https://www.msu.ru/en/">Lomonosov Moscow State University</a> in 2015.
         I obtained a MSc degree 
-        from <a href="https://www.hse.ru/en/">Higher School of Economics</a> in 2017, where I was studying advanced statistical and optimization methods.
+        from <a href="https://www.hse.ru/en/">Higher School of Economics</a> in 2017, where I was studying advanced statistical and machine learning methods.
         <br/>
         <br/>
         <hr/>
-
-        <h3> Papers </h3>
-        <h4> Preprints / Various</h4>
+        <h3>Papers</h3>
+        <h4>Preprints / Various:</h4>
         <ul>
             <li>
-            <strong>Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions.</strong>
-            Nikita Doikov, 
+            <i>Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions.</i><br/>
+            <strong>Nikita Doikov</strong>, 
             <a class="dark" href="https://www.sstich.ch/">Sebastian U. Stich</a>, and
             <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, 2024
             (<a href="https://arxiv.org/abs/2402.04843">arXiv</a>)</li>
             <li>
-            <strong>First and zeroth-order implementations of the regularized Newton method with lazy approximated Hessians.</strong>
-            Nikita Doikov and 
+            <i>First and zeroth-order implementations of the regularized Newton method with lazy approximated Hessians.</i><br/>
+            <strong>Nikita Doikov</strong> and
             <a class="dark" href="https://scholar.google.com/citations?user=PwH5lDEAAAAJ">Geovani Nunes Grapiglia</a>, 2023
             (<a href="https://arxiv.org/abs/2309.02412">arXiv</a>)</li>
             <li>
-            <strong>Minimizing Quasi-Self-Concordant Functions by Gradient Regularization of Newton Method.</strong> Nikita Doikov, 2023
+            <i>Minimizing Quasi-Self-Concordant Functions by Gradient Regularization of Newton Method.</i><br/> 
+            <strong>Nikita Doikov</strong>, 2023
             (<a href="https://arxiv.org/abs/2308.14742">arXiv</a>)</li>
             <li>
-            <strong>On Convergence of Incremental Gradient for Non-Convex Smooth Functions.</strong>
+            <i>On Convergence of Incremental Gradient for Non-Convex Smooth Functions.</i><br/>
             <a class="dark" href="https://koloskova.github.io/">Anastasia Koloskova</a>,
-            Nikita Doikov, 
+            <strong>Nikita Doikov</strong>, 
             <a class="dark" href="https://www.sstich.ch/">Sebastian U. Stich</a>, and
             <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, 2023
             (<a href="https://arxiv.org/abs/2305.19259">arXiv</a>)</li>
             <li>
-            <strong>Lower Complexity Bounds for Minimizing Regularized Functions.</strong> Nikita Doikov, 2022
+            <i>Unified Convergence Theory of Stochastic and Variance-Reduced Cubic Newton Methods.</i><br/>
+            <a class="dark" href="https://people.epfl.ch/el-mahdi.chayti?lang=en">El Mahdi Chayti</a>, 
+            <strong>Nikita Doikov</strong>, and <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, 2023
+            (<a href="https://arxiv.org/abs/2302.11962">arXiv</a>)
+            </li>
+            <li>
+            <i>Lower Complexity Bounds for Minimizing Regularized Functions.</i><br/>
+            <strong>Nikita Doikov</strong>, 2022
             (<a href="https://arxiv.org/abs/2202.04545">arXiv</a>)</li>
         </ul>
 
-        <h4> Refereed Conference Publications </h4>
+        <h4>Refereed Publications:</h4>
+        <h4>2024</h4>
         <ul>
             <li>
-            <strong>Linearization Algorithms for Fully Composite Optimization.</strong>
+            <i>Super-Universal Regularized Newton Method.</i><br/> 
+            <strong>Nikita Doikov</strong>, <a class="dark" href="https://www.konstmish.com/">Konstantin Mishchenko</a>, 
+            and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2022
+            (SIAM Journal on Optimization <strong>[SIOPT]</strong>: <a href="https://epubs.siam.org/doi/full/10.1137/22M1519444">open access</a>, <a href="https://arxiv.org/abs/2208.05888">arXiv</a>,
+            <a href="https://github.com/doikov/super-newton">code</a>)</li>
+        </ul>
+        <h4>2023</h4>
+        <ul>
+            <li>
+            <i>Linearization Algorithms for Fully Composite Optimization.</i><br/>
             <a class="dark" href="https://people.epfl.ch/maria-luiza.vladarean">Maria-Luiza Vladarean</a>, 
-            Nikita Doikov, 
+            <strong>Nikita Doikov</strong>, 
             <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, and 
             <a class="dark" href="https://people.epfl.ch/nicolas.flammarion">Nicolas Flammarion</a>, 2023
-            (COLT <a href="https://proceedings.mlr.press/v195/vladarean23a.html">proceedings</a>, <a href="https://arxiv.org/abs/2302.12808">arXiv</a>)
+            (Conference on Learning Theory <strong>[COLT]</strong>: <a href="https://proceedings.mlr.press/v195/vladarean23a.html">proceedings</a>, <a href="https://arxiv.org/abs/2302.12808">arXiv</a>)
             </li>
             <li>
-            <strong>Polynomial Preconditioning for Gradient Methods.</strong>
-            Nikita Doikov and <a class="dark" href="https://scholar.google.com/citations?user=u95GRZQAAAAJ&hl=en">Anton Rodomanov</a>, 2023
-            (ICML <a href="https://proceedings.mlr.press/v202/doikov23b.html">proceedings</a>, <a href="https://arxiv.org/abs/2301.13194">arXiv</a>)
-            </li>
+            <i>Polynomial Preconditioning for Gradient Methods.</i><br/>
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://scholar.google.com/citations?user=u95GRZQAAAAJ&hl=en">Anton Rodomanov</a>, 2023
+            (International Conference on Machine Learning <strong>[ICML]</strong>: <a href="https://proceedings.mlr.press/v202/doikov23b.html">proceedings</a>, <a href="https://arxiv.org/abs/2301.13194">arXiv</a>)</li>
             <li>
-            <strong>Second-order optimization with lazy Hessians.</strong>
-            Nikita Doikov, <a class="dark" href="https://people.epfl.ch/el-mahdi.chayti">El Mahdi Chayti</a>, 
-            and <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, 2023
-            (ICML <a href="https://proceedings.mlr.press/v202/doikov23a.html">proceedings</a>, <a href="https://arxiv.org/abs/2212.00781">arXiv</a>)
-            </li>
+            <i>Second-order optimization with lazy Hessians.</i><br/>
+            <strong>Nikita Doikov</strong>, <a class="dark" href="https://people.epfl.ch/el-mahdi.chayti">El Mahdi Chayti</a>, 
+            and <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, 2022
+            (International Conference on Machine Learning <strong>[ICML]</strong> <span class="bonus">(oral presentation)</span>: <a href="https://proceedings.mlr.press/v202/doikov23a.html">proceedings</a>, <a href="https://arxiv.org/abs/2212.00781">arXiv</a>)</li>
             <li>
-            <strong>Convex optimization based on global lower second-order models.</strong> 
-            Nikita Doikov and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2020 (NeurIPS <a href="https://proceedings.neurips.cc//paper_files/paper/2020/hash/c0c3a9fb8385d8e03a46adadde9af3bf-Abstract.html">proceedings</a>, 
+            <i>Gradient Regularization of Newton Method with Bregman Distances.</i><br/> 
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2021
+            (Mathematical Programming Journal <strong>[Math.Prog]</strong>: <a href="https://link.springer.com/article/10.1007/s10107-023-01943-7">open access</a>,
+            <a href="https://arxiv.org/abs/2112.02952">arXiv</a>)</li>
+        </ul>
+        <h4>2022</h4>
+        <ul>
+            <li>
+            <i>High-Order Optimization Methods for Fully Composite Problems.</i><br/>  
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2021
+            (SIAM Journal on Optimization <strong>[SIOPT]</strong>: <a href="https://epubs.siam.org/doi/abs/10.1137/21M1410063">open access</a>, <a href="https://arxiv.org/abs/2103.12632">arXiv</a>)</li>
+            <li>
+            <i>Affine-invariant contracting-point methods for Convex Optimization.</i><br/> 
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2020
+            (Mathematical Programming Journal <strong>[Math.Prog]</strong>: <a href="https://link.springer.com/article/10.1007%2Fs10107-021-01761-9">open access</a>,
+            <a href="https://arxiv.org/abs/2009.08894">arXiv</a>,
+            <a href="https://github.com/doikov/logsumexp-simplex">code</a>)</li>
+        </ul>
+        <h4>2021</h4>
+        <ul>
+            <li>
+            <i>Local convergence of tensor methods.</i><br/> 
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2019 
+            (Mathematical Programming Journal <strong>[Math.Prog]</strong>: <a href="https://link.springer.com/article/10.1007/s10107-020-01606-x">open access</a>,
+            <a href="https://arxiv.org/abs/1912.02516">arXiv</a>)</li>
+            <li>
+            <i>Minimizing Uniformly Convex Functions by Cubic Regularization of Newton Method.</i><br/> 
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2019 
+            (Journal of Optimization Theory and Applications <strong>[JOTA]</strong>: <a href="https://link.springer.com/article/10.1007%2Fs10957-021-01838-7">open access</a>, <a href="https://arxiv.org/abs/1905.02671">arXiv</a>)</li>
+        </ul>
+        <h4>2020</h4>
+        <ul>
+            <li>
+            <i>Convex optimization based on global lower second-order models.</i><br/> 
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2020 
+            (Conference on Neural Information Processing Systems <strong>[NeurIPS]</strong> <span class="bonus">(oral presentation)</span>: <a href="https://proceedings.neurips.cc//paper_files/paper/2020/hash/c0c3a9fb8385d8e03a46adadde9af3bf-Abstract.html">proceedings</a>, 
             <a href="https://arxiv.org/abs/2006.08518">arXiv</a>,
             <a href="https://github.com/doikov/contracting-newton">code</a>)</li>            
             <li>
-            <strong>Stochastic Subspace Cubic Newton Method.</strong> 
-            <a class="dark" href="https://fhanzely.github.io/">Filip Hanzely</a>, Nikita Doikov, 
+            <i>Stochastic Subspace Cubic Newton Method.</i><br/> 
+            <a class="dark" href="https://fhanzely.github.io/">Filip Hanzely</a>, <strong>Nikita Doikov</strong>, 
             <a class="dark" href="https://richtarik.org/">Peter Richtárik</a>, 
-            and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2020 (ICML <a href="http://proceedings.mlr.press/v119/hanzely20a.html">proceedings</a>, 
+            and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2020 
+            (International Conference on Machine Learning <strong>[ICML]</strong>: <a href="http://proceedings.mlr.press/v119/hanzely20a.html">proceedings</a>, 
             <a href="https://arxiv.org/abs/2002.09526">arXiv</a>)</li>
             <li>
-            <strong>Inexact Tensor Methods with Dynamic Accuracies.</strong> 
-            Nikita Doikov and 
-            <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2020 (ICML <a href="http://proceedings.mlr.press/v119/doikov20a.html">proceedings</a>, 
+            <i>Inexact Tensor Methods with Dynamic Accuracies.</i><br/> 
+            <strong>Nikita Doikov</strong> and 
+            <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2020 
+            (International Conference on Machine Learning <strong>[ICML]</strong>: <a href="http://proceedings.mlr.press/v119/doikov20a.html">proceedings</a>, 
             <a href="https://arxiv.org/abs/2002.09403">arXiv</a>,
             <a href="https://github.com/doikov/dynamic-accuracies">code</a>)</li>
             <li>
-            <strong>Randomized Block Cubic Newton Method.</strong> 
-            Nikita Doikov and <a class="dark" href="https://richtarik.org/">Peter Richtárik</a>, 2018 
-            (ICML <a href="http://proceedings.mlr.press/v80/doikov18a.html">proceedings</a>, <a href="https://arxiv.org/abs/1802.04084">arXiv</a>)</li>
+            <i>Contracting Proximal Methods for Smooth Convex Optimization.</i><br/> 
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 
+            2019 (SIAM Journal on Optimization <strong>[SIOPT]</strong>: <a href="https://epubs.siam.org/doi/abs/10.1137/19M130769X">open access</a>, <a href="https://arxiv.org/abs/1912.07972">arXiv</a>)</li>
+    
         </ul>
-
-        <h4> Journal Publications </h4>
+        <h4>2018</h4>
         <ul>
             <li>
-            <strong>Super-Universal Regularized Newton Method.</strong> 
-            Nikita Doikov, <a class="dark" href="https://www.konstmish.com/">Konstantin Mishchenko</a>, 
-            and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2024
-            (SIOPT <a href="https://epubs.siam.org/doi/full/10.1137/22M1519444">journal</a>, <a href="https://arxiv.org/abs/2208.05888">arXiv</a>,
-             <a href="https://github.com/doikov/super-newton">code</a>)</li>
-            <li>
-            <strong>Gradient Regularization of Newton Method with Bregman Distances.</strong> Nikita Doikov and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2023
-            (Math. Program. <a href="https://link.springer.com/article/10.1007/s10107-023-01943-7">journal</a>,
-            <a href="https://arxiv.org/abs/2112.02952">arXiv</a>)</li>
-            <li>
-            <strong>High-Order Optimization Methods for Fully Composite Problems.</strong> 
-            Nikita Doikov and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2022
-            (SIOPT <a href="https://epubs.siam.org/doi/abs/10.1137/21M1410063">journal</a>, <a href="https://arxiv.org/abs/2103.12632">arXiv</a>)</li>
-            <li>
-            <strong>Affine-invariant contracting-point methods for Convex Optimization.</strong>
-            Nikita Doikov and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2022 (Math. Program. <a href="https://link.springer.com/article/10.1007%2Fs10107-021-01761-9">journal</a>,
-            <a href="https://arxiv.org/abs/2009.08894">arXiv</a>,
-            <a href="https://github.com/doikov/logsumexp-simplex">code</a>)</li>
-            <li>
-            <strong>Local convergence of tensor methods.</strong>
-            Nikita Doikov and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2021 (Math. Program. <a href="https://link.springer.com/article/10.1007/s10107-020-01606-x">journal</a>,
-            <a href="https://arxiv.org/abs/1912.02516">arXiv</a>)</li>
-            <li>
-            <strong>Minimizing Uniformly Convex Functions by Cubic Regularization of Newton Method.</strong>
-            Nikita Doikov and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2021 (JOTA <a href="https://link.springer.com/article/10.1007%2Fs10957-021-01838-7">journal</a>, <a href="https://arxiv.org/abs/1905.02671">arXiv</a>)</li>
-            <li>
-            <strong>Contracting Proximal Methods for Smooth Convex Optimization.</strong> 
-            Nikita Doikov and <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2020 (SIOPT <a href="https://epubs.siam.org/doi/abs/10.1137/19M130769X">journal</a>, <a href="https://arxiv.org/abs/1912.07972">arXiv</a>)</li>
-        </ul>
-
+            <i>Randomized Block Cubic Newton Method.</i><br/> 
+            <strong>Nikita Doikov</strong> and <a class="dark" href="https://richtarik.org/">Peter Richtárik</a>, 2018 
+            (International Conference on Machine Learning <strong>[ICML]</strong> <span class="bonus">(oral presentation)</span>: <a href="http://proceedings.mlr.press/v80/doikov18a.html">proceedings</a>, <a href="https://arxiv.org/abs/1802.04084">arXiv</a>)</li>
+        </ul>    
+        <br/>
         <br/>
         <hr/>
 
@@ -385,7 +430,7 @@ a:hover {
         <br/>
         <hr/>
         <div class="footer">
-        Updated: February 24, 2024
+        Updated: March 22, 2024
         </div>
     </div>
 </div>
