@@ -1,13 +1,17 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nikita Doikov</title>
     <meta name="author" content="Nikita Doikov">
-    <meta name="description" content="a homepage">
+    <meta name="description" content="Nikita Doikov - Assistant Professor at Cornell ORIE. Research in Numerical Optimization and Algorithmic Complexity.">
 
     <meta property="og:site_name" content="Nikita Doikov">
     <meta property="og:url" content="https://doikov.com/">
     <meta property="og:title" content="Nikita Doikov">
-    <meta property="og:description" content="a homepage">
+    <meta property="og:description" content="Optimization Theory and Computational Mathematics at Cornell ORIE">
     <meta property="og:image" content="https://doikov.com/photos/me192.png">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170271039-1"></script>
@@ -18,28 +22,25 @@
 
       gtag('config', 'UA-170271039-1');
     </script>
-<title>
-    Nikita Doikov
-</title>
-    
-<link rel="stylesheet" type="text/css" 
-    href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
-<style type="text/css">
 
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+
+<style>
 .page, a, h1, h3 {
     font-family: "Open Sans", sans-serif;
 }
-
 body {
+    color: #222222;
     background-color: #242733;
     background-image: url("background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
+    line-height: 1.5;
 }
 
 a {
-    color: #9c0000;
+    color: #B31B1B;;
     text-decoration: underline;
     pointer-events: auto;
 }
@@ -58,27 +59,78 @@ a:hover {
     width: 270px;
     float: left;
     margin: 10px 20px 20px 10px;
-    border: red 2px;
     background-color: #FFFFFF;
     font-family: "Open Sans";
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
 }  
 
+.sideblock h1 {
+    margin: 15px 0 0 0;
+    line-height: 1.2;
+    color: #000000;
+}
+
+.sideblock h3 {
+    margin: 15px 0 15px 0; 
+    color: #000000;
+}
+
+.sideblock ul {
+    margin: 0 0 15px 0;
+    padding-left: 35px;
+}
+
+.sideblock li {
+    padding-bottom: 5px;
+}
+
 .centering {
     text-align: center;
 }
 
-.email {
+.contacts {
     padding: 0 0 20px 20px;
+    line-height: 1.2;
+}
+
+.contact {
+    font-family: monospace;
+    font-size: 0.95em;  
+    margin-bottom: 12px; 
+    line-height: 1.5; 
+}
+
+.contact:last-child {
+    margin-bottom: 0;
 }
 
 .main {
     width: 60%;
+    max-width: 1000px;
     float: left;
-    margin: 10px 10px 300px 10px;
+    margin: 10px 10px 350px 10px;
     padding: 20px 30px 20px 30px;
     background-color: #FFFFFF;
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.research-section {
+    display: block;
+    margin: 5px 0;
+}
+
+.research-images {
+    float: right;
+    width: 180px;
+    margin: 0 0 5px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bio {
+    clear: both;
+    padding: 10px 0 10px 0;
 }
 
 .dark {
@@ -127,6 +179,54 @@ a:hover {
     font-weight: bold;
 }
 
+@media (max-width: 1000px) {
+    .page {
+        padding: 0 !important;
+    }
+
+    .sideblock, .main {
+        float: none !important;
+    }
+
+    .sideblock {
+        width: 270px !important;
+        margin: 30px 30px 15px 30px !important;
+    }
+
+    .main {
+        width: auto !important; 
+        margin: 30px 30px 350px 30px !important; 
+        max-width: none;
+    }
+
+    .research-section {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .block-one { order: 1; }    
+    .block-two { order: 3; }  
+
+    .research-images { 
+        order: 2;                 
+        float: none !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important; 
+        justify-content: flex-start !important; 
+        align-items: flex-end !important; 
+        margin: 25px 0 25px 0 !important; 
+        gap: 30px; 
+    }
+
+    .research-images img {
+        width: auto !important; 
+        height: auto !important;
+        max-width: 42% !important; 
+        max-height: 150px !important; 
+        object-fit: contain !important;
+        display: block;
+    }
 </style>
 </head>
 
@@ -138,79 +238,64 @@ a:hover {
             <h1>Nikita Doikov</h1>
             <h3>a homepage</h3>
         </div>
-            <ul>
-
-                <li><a href="CV.pdf">Curriculum Vitae</a></li>
-
-                <li><a href="https://scholar.google.com/citations?user=YNBhhjUAAAAJ&hl=en">Google Scholar</a></li>
-
-                <li><a href="https://github.com/doikov">GitHub</a></li>
-
-            </ul>
-
-        <div class="email">
-            <tt>Email: <br/>nikita.doikov at cornell.edu</tt>
+        <ul>
+            <li><a href="CV.pdf">Curriculum Vitae</a></li>
+            <li><a href="https://scholar.google.com/citations?user=YNBhhjUAAAAJ&hl=en">Google Scholar</a></li>
+            <li><a href="https://github.com/doikov">GitHub</a></li>
+        </ul>
+        <div class="contacts">
+            <div class="contact">
+                <b>Office:</b><br/>218 Rhodes Hall, Cornell ORIE
+            </div>
+            <div class="contact">
+                <b>Email:</b><br/>nikita.doikov at cornell.edu
+            </div>
         </div>
-        
     </div>
     <div class="main">
         
-        <h4>Welcome!</h4>
+        <h4>Welcome!</h4>   
 
-        I do research in computational mathematics with a focus
-        on numerical optimization and machine learning.
+        <p>
+        I do research in computational mathematics with a focus on numerical optimization and machine learning.
+        </p> 
 
-        <br/>
-        <br/>
-
+        <p>
         I am an assistant professor in the <a href="https://www.engineering.cornell.edu/orie/">School of Operations Research and Information Engineering (ORIE)</a> at <a href="https://www.cornell.edu/">Cornell University</a>.
+        </p>    
 
-        <br/>
-        <br/>
-        <table cellpadding="0" style="width:100%;">
-        <tr><td>
-                I am excited to explore provably efficient optimization algorithms
-        that exploit the problem structure and combine ideas from various fields.
-        One of my areas of expertise is <i>second-order methods</i> and their <i>global complexity bounds</i>. I believe that bridging the gap between the second-order optimization theory
-        and the best known computational practices is what
-        will lead us to new achievements in the training process of our models.
-        <br/>
-        <br/>
-        </td>
-        <td style="vertical-align: top; padding-left: 5px;">
-        <img src="trajectory.png" alt="trajectory" height="120" width="160" />
-        </td></tr>
-        </table>
+        <div class="research-section">
+            <div class="research-images">
+                <img src="trajectory.png" alt="trajectory">
+                <img src="nonconvex.png" alt="non-convex">
+            </div>
 
-        
-        <table cellpadding="0" style="width:100%;">
-        <tr><td>
-        More broadly, I am interested in pursuing the following areas:
-        <ul>
-            <li>Optimization theory and algorithmic foundations of AI</li>
-            <li>Convex and non-convex problem classes, complexity bounds</li>
-            <li>Applications in statistics, machine learning, and scientific computing</li>
-            <li>Scalable, distributed, and decentralized optimization</li>
-        </ul>
-        <br/>
-        </td>
-        <td style="vertical-align: top; text-align: right;">
-        <img src="nonconvex.png" alt="non-convex" height="172" width="180" />
-        </td></tr>
-        </table>
+            <div class="block-one">I develop provably efficient optimization algorithms
+                that exploit problem structure and combine ideas from various fields.
+                I specialize in <i>second-order methods</i> and their <i>global complexity bounds</i>.
+                My research bridges the gap between optimization theory and 
+                computational practice to enable faster training and better understanding of modern AI models.</div>
 
+            <div class="block-two">
+                <p>More broadly, I work on:</p>
+                <ul>
+                    <li>Optimization theory and algorithmic foundations of AI</li>
+                    <li>Convex and non-convex problem classes, complexity bounds</li>
+                    <li>Applications in statistics, machine learning, and scientific computing</li>
+                    <li>Scalable, distributed, and decentralized optimization</li>
+                </ul>
+            </div>
+        </div>
+        <p class="bio">
+            I received my PhD in 2021 at <a href="https://uclouvain.be/en/index.html">UCLouvain</a>, Belgium, supervised by 
+            <a href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>.
+            My thesis is <a href="thesis.pdf"><i>New second-order and tensor methods
+            in Convex Optimization</i></a>.
+            After that, I was a postdoctoral researcher at <a href="https://www.epfl.ch/">EPFL</a>, Switzerland,
+            working in the <a href="https://www.epfl.ch/labs/mlo/">Machine Learning and Optimization Laboratory</a>
+            with <a href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>.
+        </p>
 
-        
-        I received my PhD in 2021 at <a href="https://uclouvain.be/en/index.html">UCLouvain</a>, Belgium, supervised by 
-        <a href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>.
-        My thesis is <a href="thesis.pdf"><i>New second-order and tensor methods
-        in Convex Optimization</i></a>.
-        After that, I was a postdoctoral researcher at <a href="https://www.epfl.ch/">EPFL</a>, Switzerland,
-        working in the <a href="https://www.epfl.ch/labs/mlo/">Machine Learning and Optimization Laboratory</a>
-        with <a href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>.
-        
-        <br/>
-        <br/>
         <hr/>
         <h3>Teaching</h3>
 
@@ -504,7 +589,7 @@ a:hover {
         <br/>
         <hr/>
         <div class="footer">
-        Updated: March 6, 2026
+        Updated: April 11, 2026
         </div>
     </div>
 </div>

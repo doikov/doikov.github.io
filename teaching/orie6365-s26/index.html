@@ -16,6 +16,7 @@
     <title>ORIE 6365: Continuous Optimization: Algorithms and Complexity (Spring 2026)</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 
@@ -41,14 +42,30 @@
         code { background: #f4f4f4; padding: 2px 5px; border-radius: 3px; }
         .logo {
             width: 100%;
-            max-width: 300px; /* Adjust this to make it larger or smaller */
+            max-width: 300px;
             height: auto;
             margin-top: 30px;
             display: block;
         }
+        .back-link {
+            font-family: "Open Sans", sans-serif;
+            position: absolute;
+            top: 10px; 
+            left: 15px;
+            color: #B31B1B !important;
+            text-decoration: underline !important;
+            font-weight: 400;
+            font-size: 0.9em;
+            z-index: 100;
+        }
+        .back-link:hover {
+            color: #EE0000 !important;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
+    <a href="../../index.html" class="back-link">&larr; Homepage</a>
 
     <center>
     <h2>ORIE 6365</h2>
