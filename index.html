@@ -6,12 +6,12 @@
 
     <title>Nikita Doikov</title>
     <meta name="author" content="Nikita Doikov">
-    <meta name="description" content="Nikita Doikov - Assistant Professor at Cornell ORIE. Research in Numerical Optimization and Algorithmic Complexity.">
+    <meta name="description" content="Nikita Doikov - Assistant Professor at Cornell ORIE. Research in optimization and machine learning, algorithm design, convergence and complexity, language modeling, unlearning, and causal discovery.">
 
     <meta property="og:site_name" content="Nikita Doikov">
     <meta property="og:url" content="https://doikov.com/">
     <meta property="og:title" content="Nikita Doikov">
-    <meta property="og:description" content="Optimization Theory and Computational Mathematics at Cornell ORIE">
+    <meta property="og:description" content="Optimization and machine learning: algorithms, theory, and collaborative research at Cornell ORIE.">
     <meta property="og:image" content="https://doikov.com/photos/me192.png">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9L5X02N8E"></script>
@@ -26,21 +26,27 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
 
 <style>
+
 .page, a, h1, h3 {
     font-family: "Open Sans", sans-serif;
 }
 body {
     color: #222222;
-    background-color: #242733;
-    background-image: url("background.jpg");
-    background-size: cover;
+    background-color: #4b7ca7;
+    /* Size the landscape by width, independent of the length of the page.
+       A short sky fade blends the photo into the blue above it. */
+    background-image:
+        linear-gradient(to bottom, #4b7ca7 0%, rgba(75, 124, 167, 0) 35%),
+        url("https://doikov.com/background.jpg");
+    background-size: 100% 75vw, 100% auto;
+    background-position: center bottom;
     background-repeat: no-repeat;
     margin: 0;
     line-height: 1.6;
 }
 
 a {
-    color: #B31B1B;;
+    color: #B31B1B;
     text-decoration: underline;
     pointer-events: auto;
 }
@@ -149,25 +155,46 @@ a:hover {
     font-style: italic;
 }
 
-.hover_img a { 
+.hover_img button {
+    font: inherit;
     color: #336699;
-    position: relative; 
-    border-bottom: 1px dotted; 
-    text-decoration: none;
+    background: none;
+    border: 0;
+    border-bottom: 1px dotted;
+    padding: 0;
+    cursor: pointer;
 }
 
-.hover_img a span { 
-    position: absolute; 
-    display: none; 
-    z-index: 99; 
+.hover_img .photo-preview {
+    position: absolute;
+    top: calc(100% - 16px);
+    left: 0;
+    display: none;
+    width: max-content;
+    max-width: 100%;
+    padding-top: 4px;
+    z-index: 99;
 }
 
-.hover_img a:hover {
+.hover_img .photo-preview img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 400px;
+    box-sizing: border-box;
+    border: 4px solid white;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.2);
+}
+
+.hover_img button:hover,
+.hover_img button:focus {
     color: #0000EE;
 }
 
-.hover_img a:hover span { 
-    display: block; 
+.hover_img:hover .photo-preview,
+.hover_img:focus-within .photo-preview {
+    display: block;
 }
 
 .main li { padding-bottom: 10px; }
@@ -231,201 +258,443 @@ a:hover {
         object-fit: contain !important;
         display: block;
     }
+}
+
+
+/* Central content: original typeface and colors, with clearer spacing. */
+.main { min-width: 0; }
+.main .research-summary { max-width: 850px; }
+.main .bio { margin-bottom: 0; }
+.main .section {
+    border-top: 1px solid #dce1e5;
+    padding-top: 26px;
+    margin-top: 30px;
+    scroll-margin-top: 22px;
+}
+.main .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+.main .section-heading h3 { margin: 0; }
+.main .section-link { font-size: 0.8em; white-space: nowrap; }
+.main .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    column-gap: 36px;
+    row-gap: 29px;
+}
+.main .direction {
+    min-width: 0;
+    padding-top: 19px;
+    border-top: 1px solid #e5e8eb;
+}
+.main .direction h4 {
+    color: #111111;
+    font-size: 1.04em;
+    line-height: 1.4;
+    font-weight: 600;
+    margin: 0 0 12px;
+}
+.main .direction p { margin: 0; font-size: 0.94em; line-height: 1.7; }
+.main .direction-figure {
+    float: right;
+    width: 108px;
+    margin: 3px 0 10px 18px;
+}
+.main .direction-figure.landscape { width: 114px; }
+.main .direction-figure img,
+.main .direction-figure svg { display: block; width: 100%; height: auto; }
+.main .paper-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 16px;
+    clear: both;
+    margin-top: 13px;
+    font-size: 0.8em;
+    line-height: 1.7;
+}
+.main .direction::after { content: ""; display: block; clear: both; }
+.main .year-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin: -8px 0 26px;
+    font-size: 0.8em;
+}
+.main .year-nav a { color: #66717b; text-decoration: none; }
+.main .year-nav a:hover { color: #B31B1B; text-decoration: underline; }
+.main .paper-year {
+    display: grid;
+    grid-template-columns: 85px minmax(0, 1fr);
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e8eb;
+    scroll-margin-top: 22px;
+}
+.main .paper-year h4 { color: #66717b; font-size: 0.94em; font-weight: 600; margin: 0; }
+.main .papers { list-style: none; margin: 0; padding: 0; }
+.main .papers li {
+    margin: 0;
+    padding: 0 0 25px;
+    color: #606970;
+    font-size: 0.88em;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+.main .papers li b {
+    display: block;
+    color: #222222;
+    margin-bottom: 4px;
+    font-size: 1.13em;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.main .papers li b + br { display: none; }
+.main .papers .dark { color: inherit; }
+.main .papers .dark:hover { text-decoration: underline; }
+.main .teaching-list { display: grid; gap: 24px; padding-bottom: 2px; }
+.main .course {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) 90px;
+    gap: 18px;
+    align-items: baseline;
+}
+.main .course-code { font: 0.85em/1.5 monospace; color: #66717b; margin: 0; }
+.main .course h4 { font-size: 0.97em; font-weight: 600; line-height: 1.5; margin: 0; }
+.main .course h4 a { color: #012042; text-decoration: none; }
+.main .course h4 a:hover { text-decoration: underline; }
+.main .course-links { margin: 6px 0 0; font-size: 0.82em; }
+.main .course-links .notes-download { font-weight: 600; }
+.main .course-term { margin: 0; font-size: 0.8em; text-align: right; color: #66717b; }
+.main .talks h3 { margin: 0; }
+.main .talk-list { margin: 22px 0 0; padding-left: 22px; font-size: 0.9em; }
+.main .talk-list li { position: relative; padding: 0 0 16px 5px; }
+.main .footer {
+    border-top: 1px solid #dce1e5;
+    margin-top: 30px;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+a:focus-visible, button:focus-visible { outline: 2px solid #012042; outline-offset: 4px; }
+
+/* Phones keep the same two white blocks, stacked with readable margins. */
+@media (max-width: 600px) {
+    .page { padding: 16px !important; }
+    .sideblock {
+        box-sizing: border-box;
+        width: 270px !important;
+        max-width: 100%;
+        margin: 0 0 22px !important;
+    }
+    .sideblock > img { display: block; max-width: 100%; height: auto; }
+    .main {
+        box-sizing: border-box;
+        width: 100% !important;
+        min-width: 0;
+        margin: 0 0 80px !important;
+        padding: 20px;
+        overflow-wrap: anywhere;
+    }
+    .title-block, .contacts { padding-right: 16px; }
+    .main .section-heading { flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+    .main .research-grid { grid-template-columns: minmax(0, 1fr); }
+    .main .direction-figure { width: 96px; margin-left: 14px; }
+    .main .paper-year { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .main .course { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+    .main .course-term { text-align: left; }
+    .main .footer { flex-wrap: wrap; }
+    /* Keep the final photo previews within the page, above their triggers. */
+    .talk-list li:nth-last-child(-n+3) .photo-preview {
+        top: auto;
+        bottom: 100%;
+        padding: 0 0 4px;
+    }
+}
+@media (max-width: 380px) {
+    .main .direction-figure,
+    .main .direction-figure.landscape { width: 72px; margin-left: 12px; }
+}
+@media print {
+    body { background: white; }
+    .page { padding: 0; }
+    .sideblock, .main { float: none; }
+    .main { width: auto; max-width: none; margin: 20px 0; }
+    .direction, .papers li, .course { break-inside: avoid; }
+}
+
 </style>
 </head>
-
-<body>
+<body id="top">
 <div class="page">
     <div class="sideblock">
-        <img src="photos/me.jpg" alt="Me" height="270" width="270" />
+        <img src="https://doikov.com/photos/me.jpg" alt="Me" height="270" width="270">
         <div class="title-block">
             <h1>Nikita Doikov</h1>
             <h3>a homepage</h3>
         </div>
         <ul>
-            <li><a href="CV.pdf">Curriculum Vitae</a></li>
-            <li><a href="https://scholar.google.com/citations?user=YNBhhjUAAAAJ&hl=en">Google Scholar</a></li>
+            <li><a href="https://doikov.com/CV.pdf">Curriculum Vitae</a></li>
+            <li><a href="https://scholar.google.com/citations?user=YNBhhjUAAAAJ&amp;hl=en">Google Scholar</a></li>
             <li><a href="https://github.com/doikov">GitHub</a></li>
+            <li><a href="https://doikov.com/Doikov_Optimization_2026.pdf">Lecture notes</a></li>
         </ul>
         <div class="contacts">
             <div class="contact">
-                <b>Office:</b><br/>218 Rhodes Hall, Cornell ORIE
+                <b>Office:</b><br>218 Rhodes Hall, Cornell ORIE
             </div>
             <div class="contact">
-                <b>Email:</b><br/>nikita.doikov at cornell.edu
+                <b>Email:</b><br>nikita.doikov at cornell.edu
             </div>
         </div>
     </div>
-    <div class="main">
-        <p>
-        <b>Welcome!</b>
-        I do research in computational mathematics with a focus on optimization and machine learning.
-        </p> 
+    <div class="main" id="main">
+        <p><b>Welcome!</b> I work on optimization for machine learning and AI.</p>
+        <p>I am an assistant professor in the <a href="https://www.engineering.cornell.edu/orie/">School of Operations Research and Information Engineering (ORIE)</a> at <a href="https://www.cornell.edu/">Cornell University</a>.</p>
 
-        <p>
-        I am an assistant professor in the <a href="https://www.engineering.cornell.edu/orie/">School of Operations Research and Information Engineering (ORIE)</a> at <a href="https://www.cornell.edu/">Cornell University</a>.
-        </p>    
-
-        <h3>Research Area</h3>
-        <div class="research-section">
-            <div class="research-images">
-                <img src="trajectory.png" alt="trajectory">
-                <img src="nonconvex.png" alt="non-convex">
-            </div>
-
-            <p>I develop provably efficient optimization algorithms
-                that exploit problem structure and combine ideas from various fields.
-                I specialize in <i>second-order methods</i> and their <i>global complexity bounds</i>.
-                My research bridges the gap between optimization theory and 
-                computational practice to enable faster training and better understanding of modern AI models.</p>
-
-            <div class="block-two">
-                <p>More broadly, I work on:</p>
-                <ul>
-                    <li>Optimization theory and algorithmic foundations of AI</li>
-                    <li>Convex and non-convex problem classes, complexity bounds</li>
-                    <li>Applications in statistics, machine learning, and scientific computing</li>
-                    <li>Scalable, distributed, and decentralized optimization</li>
-                </ul>
-            </div>
-        </div>
+        <p class="research-summary">My research combines algorithm design with convergence and complexity analysis.
+            I am interested in how problem structure, curvature, and randomness can make training large models more efficient.</p>
         <p class="bio">
             I received my PhD in 2021 at <a href="https://uclouvain.be/en/index.html">UCLouvain</a>, Belgium, supervised by 
-            <a href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>.
-            My thesis is <a href="thesis.pdf"><i>New second-order and tensor methods
+            <a href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>.
+            My thesis is <a href="https://doikov.com/thesis.pdf"><i>New second-order and tensor methods
             in Convex Optimization</i></a>.
             After that, I was a postdoctoral researcher at <a href="https://www.epfl.ch/">EPFL</a>, Switzerland,
             working in the <a href="https://www.epfl.ch/labs/mlo/">Machine Learning and Optimization Laboratory</a>
             with <a href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>.
         </p>
 
-        <hr/>
-        <h3>Teaching</h3>
-
-        <ul>
-        <li><strong>ORIE 6365:</strong> <a href="teaching/orie6365-s26/">Continuous Optimization: Algorithms and Complexity</a>, Spring 26 (<a href="Doikov_Optimization_2026.pdf">lecture notes</a>)</li>
-        </ul>
-
-        <ul>
-        <li><strong>ORIE 3300 / 5300:</strong> Optimization I, Fall 26 (<a href="https://canvas.cornell.edu/courses/88571">canvas</a>)</li>
-        </ul>
-
-        <br/>
-        <hr/>
-        <h3>Papers</h3>
-        <h4>Recent preprints / various:</h4>
-        <ul>
+        <section class="section" id="research" aria-labelledby="research-title">
+        <div class="section-heading">
+            <h3 id="research-title">Recent Research Directions</h3>
+            <a class="section-link" href="#papers">All papers ↓</a>
+        </div>
+        <div class="research-grid">
+            <article class="direction">
+                <h4>Accelerated and adaptive Newton methods</h4>
+                <figure class="direction-figure">
+                    <img src="https://doikov.com/trajectory.png" alt="Comparison of first-order and second-order optimization trajectories" loading="lazy">
+                </figure>
+                <p>Fast Newton methods with global guarantees and simple updates. This includes primal acceleration with one linear solve per iteration, global linear convergence for quasi-self-concordant objectives, and adaptive super-universal methods.</p>
+                <div class="paper-links">
+                    <a href="https://arxiv.org/abs/2608.21359">Primal acceleration · 2026</a>
+                    <a href="https://arxiv.org/abs/2308.14742">Quasi-self-concordance · Math. Prog. 2025</a>
+                    <a href="https://arxiv.org/abs/2208.05888">Super-universal Newton · SIOPT 2024</a>
+                </div>
+            </article>
+            <article class="direction">
+                <h4>Curvature, non-convexity and geometry of training</h4>
+                <figure class="direction-figure landscape">
+                    <img src="https://doikov.com/nonconvex.png" alt="Non-convex landscape with a marked convex direction" loading="lazy">
+                </figure>
+                <p>How problem geometry affects optimization, and how to exploit it through global curvature bounds, affine-invariant methods, and inexpensive Hessian information.</p>
+                <div class="paper-links">
+                    <a href="https://arxiv.org/abs/2511.07341">Global curvature bounds · 2026</a>
+                    <a href="https://arxiv.org/abs/2212.00781">Lazy Hessians · ICML 2023</a>
+                    <a href="https://arxiv.org/abs/2402.04843">Graded non-convexity · ICML 2024</a>
+                    <a href="https://arxiv.org/abs/2006.08518">Contracting Newton · NeurIPS 2020</a>
+                </div>
+            </article>
+            <article class="direction">
+                <h4>Shuffling, stochasticity, and data unlearning</h4>
+                <figure class="direction-figure">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 140" role="img" aria-labelledby="stochastic-figure-title">
+                        <title id="stochastic-figure-title">Stochastic optimization trajectories</title>
+                        <desc>Noisy optimization.</desc>
+                        <g fill="none" stroke="#cbd8df" stroke-width="1.2" transform="rotate(-26 96 77)">
+                            <ellipse cx="96" cy="77" rx="75" ry="47"/>
+                            <ellipse cx="96" cy="77" rx="58" ry="35"/>
+                            <ellipse cx="96" cy="77" rx="40" ry="24"/>
+                            <ellipse cx="96" cy="77" rx="22" ry="13"/>
+                        </g>
+                        <path d="M25 27 L57 28 L41 53 L76 42 L63 68 L88 59 L80 80 L100 69 L93 80 L99 75 L96 77" fill="none" stroke="#336e94" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+                        <path d="M25 27 L33 55 L65 48 L58 78 L84 69 L79 89 L102 82 L94 72 L96 77" fill="none" stroke="#b14d49" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+                        <circle cx="25" cy="27" r="3.5" fill="#336e94"/>
+                        <circle cx="96" cy="77" r="3.5" fill="#012042"/>
+                    </svg>
+                </figure>
+                <p>Convergence and complexity guarantees for shuffled and stochastic optimization, and for removing the influence of training data through certified unlearning.</p>
+                <div class="paper-links">
+                    <a href="https://arxiv.org/abs/2607.20192">Certified unlearning · 2026</a>
+                    <a href="https://arxiv.org/abs/2410.19644">Momentum · AISTATS 2025</a>
+                    <a href="https://arxiv.org/abs/2305.19259">Shuffling &amp; data ordering · ICML 2024</a>
+                    <a href="https://arxiv.org/abs/2302.11962">Variance reduction · TMLR 2024</a>
+                </div>
+            </article>
+            <article class="direction">
+                <h4>Collaborative and causal learning</h4>
+                <figure class="direction-figure">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 140" role="img" aria-labelledby="causal-figure-title">
+                        <title id="causal-figure-title">A causal graph</title>
+                        <desc>Acyclic graph with shared causes and connected outcomes.</desc>
+                        <defs>
+                            <marker id="causal-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0 0 L6 3 L0 6 Z" fill="#477c9b"/>
+                            </marker>
+                        </defs>
+                        <g fill="none" stroke="#477c9b" stroke-width="1.7" marker-end="url(#causal-arrow)">
+                            <path d="M38 29 L66 57"/>
+                            <path d="M127 29 L87 58"/>
+                            <path d="M143 31 L153 93"/>
+                            <path d="M72 78 L45 105"/>
+                            <path d="M89 76 L141 102"/>
+                            <path d="M51 115 L139 115"/>
+                        </g>
+                        <g stroke="#477c9b" stroke-width="1.6">
+                            <circle cx="30" cy="21" r="11" fill="#edf4f8"/>
+                            <circle cx="137" cy="21" r="11" fill="#edf4f8"/>
+                            <circle cx="78" cy="68" r="12" fill="#bcd7e7"/>
+                            <circle cx="39" cy="115" r="11" fill="#edf4f8"/>
+                            <circle cx="153" cy="111" r="12" fill="#edf4f8"/>
+                        </g>
+                        <circle cx="78" cy="68" r="4" fill="#b14d49"/>
+                    </svg>
+                </figure>
+                <p>Collaborative work on personalized on-device large language models (LLMs) with mixtures of experts (CoMiGS), and causal discovery from interventional data (PACER).</p>
+                <div class="paper-links">
+                    <a href="https://arxiv.org/abs/2409.13931">CoMiGS · ICML 2025</a>
+                    <a href="https://arxiv.org/abs/2605.15353">PACER · ICML 2026</a>
+                </div>
+            </article>
+        </div>
+    </section>
+        <section class="section" id="teaching" aria-labelledby="teaching-title">
+        <div class="section-heading"><h3 id="teaching-title">Teaching &amp; Lecture Notes</h3></div>
+        <div class="teaching-list">
+            <article class="course">
+                <p class="course-code">ORIE 3300 / 5300</p>
+                <div><h4>Optimization I</h4><p class="course-links"><a href="https://canvas.cornell.edu/courses/88571">Canvas</a></p></div>
+                <p class="course-term">Fall 2026</p>
+            </article>
+            <article class="course">
+                <p class="course-code">ORIE 6365</p>
+                <div><h4><a href="https://doikov.com/teaching/orie6365-s26/">Continuous Optimization: Algorithms and Complexity</a></h4>
+                <p class="course-links"><a class="notes-download" href="https://doikov.com/Doikov_Optimization_2026.pdf">Lecture notes (PDF)</a></p></div>
+                <p class="course-term">Spring 2026</p>
+            </article>
+        </div>
+    </section>
+        <section class="section" id="papers" aria-labelledby="papers-title">
+        <div class="section-heading">
+            <h3 id="papers-title">All Papers</h3>
+            <a class="section-link" href="https://scholar.google.com/citations?user=YNBhhjUAAAAJ&amp;hl=en">Google Scholar ↗</a>
+        </div>
+        <nav class="year-nav" aria-label="Publication years">
+            <a href="#preprints">Preprints</a>
+            <a href="#papers-2026">2026</a><a href="#papers-2025">2025</a>
+            <a href="#papers-2024">2024</a><a href="#papers-2023">2023</a>
+            <a href="#papers-2022">2022</a><a href="#papers-2021">2021</a>
+            <a href="#papers-2020">2020</a><a href="#papers-2018">2018</a>
+        </nav>
+        <div class="paper-year" id="preprints"><h4>Preprints</h4><ul class="papers">
             <li>
-            <b>Primal Acceleration of Newton's Method.</b><br/>
+            <b>Primal Acceleration of Newton's Method.</b><br>
             Nikita Doikov, 2026
             (<a href="https://arxiv.org/abs/2608.21359">arXiv</a>)</li>
             <li>
-            <b>On Optimization Complexity of Second-Order Certified Unlearning.</b><br/>
+            <b>On Optimization Complexity of Second-Order Certified Unlearning.</b><br>
             Nikita Doikov, <a class="dark" href="https://koloskova.github.io/">Anastasia Koloskova</a>, 2026
             (<a href="https://arxiv.org/abs/2607.20192">arXiv</a>, <a href="https://openreview.net/pdf?id=7dQauUMzJ1">ICML Workshop</a>)</li>
             <li>
-            <b>Universal Reduced-Operator Method and High-Order Global Curvature Bounds.</b><br/>
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>, 2025
+            <b>Universal Reduced-Operator Method and High-Order Global Curvature Bounds.</b><br>
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>, 2025
             (<a href="https://arxiv.org/abs/2511.07341">arXiv</a>)</li>
-        </ul>
-
-        <h4>Refereed publications:</h4>
-        <h4>2026</h4>
-        <ul>
+        </ul></div>
+<div class="paper-year" id="papers-2026"><h4>2026</h4><ul class="papers">
             <li>
-            <b>On the Complexity of Lower-Order Implementations of Higher-Order Methods.</b><br/>
+            <b>On the Complexity of Lower-Order Implementations of Higher-Order Methods.</b><br>
             Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=PwH5lDEAAAAJ">Geovani Nunes Grapiglia</a>
             (<a href="https://link.springer.com/article/10.1007/s10107-026-02386-6">Math. Prog</a>, <a href="https://arxiv.org/abs/2510.07992">arXiv</a>)</li>
             <li>
-            <b>Complexity of Minimizing Regularized Convex Quadratic Functions.</b><br/>
+            <b>Complexity of Minimizing Regularized Convex Quadratic Functions.</b><br>
             <a class="dark" href="https://bergthomsen.com/">Daniel Berg Thomsen</a>, Nikita Doikov
             (<a href="https://epubs.siam.org/doi/10.1137/25M1736578">SIOPT</a>, <a href="https://arxiv.org/abs/2404.17543">arXiv</a>)</li>
             <li>
-            <b>PACER: Acyclic Causal Discovery from Large-Scale Interventional Data</b><br/>
+            <b>PACER: Acyclic Causal Discovery from Large-Scale Interventional Data</b><br>
             <a class="dark" href="https://scholar.google.com/citations?user=5Em0-BAAAAAJ">Ramon Viñas Torné</a>, 
             Sílvia Fàbregas Salazar, 
             <a class="dark" href="https://soyon007.github.io/">Soyon Park</a>, 
             Ivo Alexander Ban, 
-            <br/>
+            <br>
             <a class="dark" href="https://agadetsky.github.io/">Artyom Gadetsky</a>, 
             Nikita Doikov, 
-            <a class="dark"  href="https://scholar.google.com/citations?user=ltxmeroAAAAJ&hl=en">Maria Brbić</a>
+            <a class="dark" href="https://scholar.google.com/citations?user=ltxmeroAAAAJ&amp;hl=en">Maria Brbić</a>
             (<a href="https://icml.cc/virtual/2026/poster/65660">ICML</a>, <a href="https://arxiv.org/abs/2605.15353">arXiv</a>)
             </li>
             <li>
-            <b>Gradient-Normalized Smoothness for Optimization with Approximate Hessians.</b><br/>
+            <b>Gradient-Normalized Smoothness for Optimization with Approximate Hessians.</b><br>
             <a class="dark" href="https://andron00e.github.io/">Andrei Semenov</a>, <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, Nikita Doikov 
             (<a href="https://iclr.cc/virtual/2026/poster/10010642">ICLR</a>,
              <a href="https://arxiv.org/abs/2506.13710">arXiv</a>)</li>
-        </ul>
-        <h4>2025</h4>
-        <ul>
+        </ul></div>
+<div class="paper-year" id="papers-2025"><h4>2025</h4><ul class="papers">
             <li>
-            <b>Minimizing Quasi-Self-Concordant Functions by Gradient Regularization of Newton Method.</b><br/> 
+            <b>Minimizing Quasi-Self-Concordant Functions by Gradient Regularization of Newton Method.</b><br> 
             Nikita Doikov 
             (<a href="https://link.springer.com/article/10.1007/s10107-025-02270-9">Math. Prog</a>, <a href="https://arxiv.org/abs/2308.14742">arXiv</a>)</li>
             <li>
-            <b>Lower Complexity Bounds for Minimizing Regularized Functions.</b><br/>
+            <b>Lower Complexity Bounds for Minimizing Regularized Functions.</b><br>
             Nikita Doikov
             (<a href="https://link.springer.com/article/10.1007/s11590-025-02237-x">Optim. Lett</a>, <a href="https://arxiv.org/abs/2202.04545">arXiv</a>)</li>
             <li>
-            <b>On-Device Collaborative Language Modeling via a Mixture of Generalists and Specialists.</b><br/>
+            <b>On-Device Collaborative Language Modeling via a Mixture of Generalists and Specialists.</b><br>
             <a class="dark" href="https://fan1dy.github.io/">Dongyang Fan</a>, 
             <a class="dark" href="https://bettinamessmer.ch/">Bettina Messmer</a>, 
             Nikita Doikov, <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>
             (<a href="https://icml.cc/virtual/2025/poster/45925">ICML</a>,
                 <a href="https://arxiv.org/abs/2409.13931">arXiv</a>)</li>
             <li>
-            <b>Improving Stochastic Cubic Newton with Momentum.</b><br/>
+            <b>Improving Stochastic Cubic Newton with Momentum.</b><br>
             <a class="dark" href="https://people.epfl.ch/el-mahdi.chayti?lang=en">El Mahdi Chayti</a>, 
             Nikita Doikov, <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>
             (<a href="https://virtual.aistats.org/virtual/2025/poster/9713">AISTATS</a>, 
                 <a href="http://arxiv.org/abs/2410.19644">arXiv</a>)
             </li>
             <li>
-            <b>Cubic regularized subspace Newton for non-convex optimization.</b><br/>
+            <b>Cubic regularized subspace Newton for non-convex optimization.</b><br>
             <a class="dark" href="https://scholar.google.com/citations?user=GAxXyUUAAAAJ">Jim Zhao</a>, 
             <a class="dark" href="https://scholar.google.com/citations?user=V1ONSgIAAAAJ">Aurelien Lucchi</a>, 
             Nikita Doikov
             (<a href="https://virtual.aistats.org/virtual/2025/oral/9810">AISTATS</a>, <a href="https://arxiv.org/abs/2406.16666">arXiv</a>)</li>
             <li>
-            <b>First and zeroth-order implementations of the regularized Newton method with lazy approximated Hessians.</b><br/>
+            <b>First and zeroth-order implementations of the regularized Newton method with lazy approximated Hessians.</b><br>
             Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=PwH5lDEAAAAJ">Geovani Nunes Grapiglia</a>
             (<a href="https://link.springer.com/article/10.1007/s10915-025-02842-z">Sci. Comp</a>, <a href="https://arxiv.org/abs/2309.02412">arXiv</a>)</li>
-        </ul>
-
-        <h4>2024</h4>
-        <ul>
+        </ul></div>
+<div class="paper-year" id="papers-2024"><h4>2024</h4><ul class="papers">
             <li>
-            <b>Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions.</b><br/>
+            <b>Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions.</b><br>
             Nikita Doikov, <a class="dark" href="https://www.sstich.ch/">Sebastian U. Stich</a>, 
             <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>
             (<a href="https://proceedings.mlr.press/v235/doikov24a.html">ICML</a>, 
             <a href="https://arxiv.org/abs/2402.04843">arXiv</a>)</li>
             <li>
-            <b>On Convergence of Incremental Gradient for Non-Convex Smooth Functions.</b><br/>
+            <b>On Convergence of Incremental Gradient for Non-Convex Smooth Functions.</b><br>
             <a class="dark" href="https://koloskova.github.io/">Anastasia Koloskova</a>, 
             Nikita Doikov, 
             <a class="dark" href="https://www.sstich.ch/">Sebastian U. Stich</a>, <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>
             (<a href="https://proceedings.mlr.press/v235/koloskova24a.html">ICML</a>, 
             <a href="https://arxiv.org/abs/2305.19259">arXiv</a>)</li>
             <li>
-            <b>Unified Convergence Theory of Stochastic and Variance-Reduced Cubic Newton Methods.</b><br/>
+            <b>Unified Convergence Theory of Stochastic and Variance-Reduced Cubic Newton Methods.</b><br>
             <a class="dark" href="https://people.epfl.ch/el-mahdi.chayti?lang=en">El Mahdi Chayti</a>, 
             <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, Nikita Doikov
             (<a href="https://openreview.net/pdf?id=FCs5czlDTr">TMLR</a>, <a href="https://arxiv.org/abs/2302.11962">arXiv</a>)
             </li>
             <li>
-            <b>Super-Universal Regularized Newton Method.</b><br/> 
+            <b>Super-Universal Regularized Newton Method.</b><br> 
             Nikita Doikov, <a class="dark" href="https://www.konstmish.com/">Konstantin Mishchenko</a>, 
-            <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="https://epubs.siam.org/doi/full/10.1137/22M1519444">SIOPT</a>, <a href="https://arxiv.org/abs/2208.05888">arXiv</a>,
             <a href="https://github.com/doikov/super-newton">code</a>)</li>
-        </ul>
-        <h4>2023</h4>
-        <ul>
+        </ul></div>
+<div class="paper-year" id="papers-2023"><h4>2023</h4><ul class="papers">
             <li>
-            <b>Linearization Algorithms for Fully Composite Optimization.</b><br/>
+            <b>Linearization Algorithms for Fully Composite Optimization.</b><br>
             <a class="dark" href="https://scholar.google.com/citations?user=5_tWxxoAAAAJ">Maria-Luiza Vladarean</a>, 
             Nikita Doikov, 
             <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>, 
@@ -433,137 +702,132 @@ a:hover {
             (<a href="https://proceedings.mlr.press/v195/vladarean23a.html">COLT</a>, <a href="https://arxiv.org/abs/2302.12808">arXiv</a>)
             </li>
             <li>
-            <b>Polynomial Preconditioning for Gradient Methods.</b><br/>
+            <b>Polynomial Preconditioning for Gradient Methods.</b><br>
             Nikita Doikov, <a class="dark" href="https://arodomanov.github.io/">Anton Rodomanov</a>
             (<a href="https://proceedings.mlr.press/v202/doikov23b.html">ICML</a>, <a href="https://arxiv.org/abs/2301.13194">arXiv</a>)</li>
             <li>
-            <b>Second-order optimization with lazy Hessians.</b><br/>
+            <b>Second-order optimization with lazy Hessians.</b><br>
             Nikita Doikov, 
             <a class="dark" href="https://people.epfl.ch/el-mahdi.chayti?lang=en">El Mahdi Chayti</a>, 
             <a class="dark" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>
             (<a href="https://proceedings.mlr.press/v202/doikov23a.html">ICML</a>, <a href="https://arxiv.org/abs/2212.00781">arXiv</a>)</li>
             <li>
-            <b>Gradient Regularization of Newton Method with Bregman Distances.</b><br/> 
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>Gradient Regularization of Newton Method with Bregman Distances.</b><br> 
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="https://link.springer.com/article/10.1007/s10107-023-01943-7">Math. Prog</a>,
             <a href="https://arxiv.org/abs/2112.02952">arXiv</a>)</li>
-        </ul>
-        <h4>2022</h4>
-        <ul>
+        </ul></div>
+<div class="paper-year" id="papers-2022"><h4>2022</h4><ul class="papers">
             <li>
-            <b>High-Order Optimization Methods for Fully Composite Problems.</b><br/>  
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>High-Order Optimization Methods for Fully Composite Problems.</b><br>  
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="https://epubs.siam.org/doi/abs/10.1137/21M1410063">SIOPT</a>, <a href="https://arxiv.org/abs/2103.12632">arXiv</a>)</li>
             <li>
-            <b>Affine-invariant contracting-point methods for Convex Optimization.</b><br/> 
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>Affine-invariant contracting-point methods for Convex Optimization.</b><br> 
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="https://link.springer.com/article/10.1007%2Fs10107-021-01761-9">Math. Prog</a>,
             <a href="https://arxiv.org/abs/2009.08894">arXiv</a>,
             <a href="https://github.com/doikov/logsumexp-simplex">code</a>)</li>
-        </ul>
-        <h4>2021</h4>
-        <ul>
+        </ul></div>
+<div class="paper-year" id="papers-2021"><h4>2021</h4><ul class="papers">
             <li>
-            <b>Local convergence of tensor methods.</b><br/> 
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>Local convergence of tensor methods.</b><br> 
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="https://link.springer.com/article/10.1007/s10107-020-01606-x">Math. Prog</a>,
             <a href="https://arxiv.org/abs/1912.02516">arXiv</a>)</li>
             <li>
-            <b>Minimizing Uniformly Convex Functions by Cubic Regularization of Newton Method.</b><br/> 
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>Minimizing Uniformly Convex Functions by Cubic Regularization of Newton Method.</b><br> 
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="https://link.springer.com/article/10.1007%2Fs10957-021-01838-7">JOTA</a>, <a href="https://arxiv.org/abs/1905.02671">arXiv</a>)</li>
-        </ul>
-        <h4>2020</h4>
-        <ul>
+        </ul></div>
+<div class="paper-year" id="papers-2020"><h4>2020</h4><ul class="papers">
             <li>
-            <b>Convex optimization based on global lower second-order models.</b><br/> 
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>Convex optimization based on global lower second-order models.</b><br> 
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="https://proceedings.neurips.cc//paper_files/paper/2020/hash/c0c3a9fb8385d8e03a46adadde9af3bf-Abstract.html">NeurIPS</a>, 
             <a href="https://arxiv.org/abs/2006.08518">arXiv</a>,
             <a href="https://github.com/doikov/contracting-newton">code</a>)</li>            
             <li>
-            <b>Stochastic Subspace Cubic Newton Method.</b><br/> 
-            Filip Hanzely, Nikita Doikov, <a class="dark" href="https://richtarik.org/">Peter Richtárik</a>, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>Stochastic Subspace Cubic Newton Method.</b><br> 
+            Filip Hanzely, Nikita Doikov, <a class="dark" href="https://richtarik.org/">Peter Richtárik</a>, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="http://proceedings.mlr.press/v119/hanzely20a.html">ICML</a>, 
             <a href="https://arxiv.org/abs/2002.09526">arXiv</a>)</li>
             <li>
-            <b>Inexact Tensor Methods with Dynamic Accuracies.</b><br/> 
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>Inexact Tensor Methods with Dynamic Accuracies.</b><br> 
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="http://proceedings.mlr.press/v119/doikov20a.html">ICML</a>, 
             <a href="https://arxiv.org/abs/2002.09403">arXiv</a>,
             <a href="https://github.com/doikov/dynamic-accuracies">code</a>)</li>
             <li>
-            <b>Contracting Proximal Methods for Smooth Convex Optimization.</b><br/> 
-            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&hl=en">Yurii Nesterov</a>
+            <b>Contracting Proximal Methods for Smooth Convex Optimization.</b><br> 
+            Nikita Doikov, <a class="dark" href="https://scholar.google.com/citations?user=DJ8Ep8YAAAAJ&amp;hl=en">Yurii Nesterov</a>
             (<a href="https://epubs.siam.org/doi/abs/10.1137/19M130769X">SIOPT</a>, <a href="https://arxiv.org/abs/1912.07972">arXiv</a>)</li>
     
-        </ul>
-        <h4>2018</h4>
-        <ul>
+        </ul></div>
+<div class="paper-year" id="papers-2018"><h4>2018</h4><ul class="papers">
             <li>
-            <b>Randomized Block Cubic Newton Method.</b><br/> 
+            <b>Randomized Block Cubic Newton Method.</b><br> 
             Nikita Doikov, <a class="dark" href="https://richtarik.org/">Peter Richtárik</a>
             (<a href="http://proceedings.mlr.press/v80/doikov18a.html">ICML</a>, <a href="https://arxiv.org/abs/1802.04084">arXiv</a>)</li>
-        </ul>    
-        <br/>
-        <hr/>
-
-        <h3>Recent Talks</h3>
-        <ul>
+        </ul></div>
+    </section>
+        <section class="talks section" id="talks" aria-labelledby="talks-title">
+            <h3 id="talks-title">Talks &amp; slides</h3>
+            <ul class="talk-list">
             <li>June 18, 2026: <strong>Lower Complexity Bounds for Minimizing
-Regularized Quadratic Functions</strong>, UCLouvain, Louvain-la-Neuve  (<a href="slides/RegQuad_UCLouvain26.pdf">slides</a>)</li>
+Regularized Quadratic Functions</strong>, UCLouvain, Louvain-la-Neuve  (<a href="https://doikov.com/slides/RegQuad_UCLouvain26.pdf">slides</a>)</li>
             <li>June 11, 2026: <strong>Gradient-Normalized Smoothness for Optimization
-with Approximate Hessians</strong>, VOCAL, Mosonmagyaróvár (<a href="slides/GradNormSmooth_VOCAL26.pdf">slides</a>)</li>
-            <li>May 4, 2025: <strong>Cubic regularized subspace Newton for non-convex optimization</strong>, AISTATS, Phuket (<a href="slides/SSCN_AISTATS25.pdf">slides</a>)
-            <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/AISTATS25.jpg" alt="photo" height="400"/></span></a></span>
+with Approximate Hessians</strong>, VOCAL, Mosonmagyaróvár (<a href="https://doikov.com/slides/GradNormSmooth_VOCAL26.pdf">slides</a>)</li>
+            <li>May 4, 2025: <strong>Cubic regularized subspace Newton for non-convex optimization</strong>, AISTATS, Phuket (<a href="https://doikov.com/slides/SSCN_AISTATS25.pdf">slides</a>)
+            <span class="hover_img"><button type="button" aria-label="Preview photo: AISTATS 2025, Phuket">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/AISTATS25.jpg" alt="AISTATS 2025, Phuket" height="400" loading="lazy"></span></span>
             </li>
-            <li>April 9, 2025: <strong>Stochastic second-order optimization: global bounds, subspaces, and momentum</strong>, UCLouvain, Louvain-la-Neuve (<a href="slides/StochNewton_UCLouvain25.pdf">slides</a>)</li>
+            <li>April 9, 2025: <strong>Stochastic second-order optimization: global bounds, subspaces, and momentum</strong>, UCLouvain, Louvain-la-Neuve (<a href="https://doikov.com/slides/StochNewton_UCLouvain25.pdf">slides</a>)</li>
             <li>December 3, 2024: <strong>Stochastic second-order optimization: global bounds, subspaces, and momentum</strong>, 
-                WIAS, Berlin (<a href="slides/StochNewton_WIAS24.pdf">slides</a>)</li>
+                WIAS, Berlin (<a href="https://doikov.com/slides/StochNewton_WIAS24.pdf">slides</a>)</li>
             <li>August 27, 2024: <strong>Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions</strong>, 
-                <a class="dark" href="https://sites.uclouvain.be/algopt2024/">ALGOPT</a>, Louvain-la-Neuve (<a href="slides/SpecPrecond_ALGOPT24.pdf">slides</a>) <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/ALGOPT24.jpg" alt="photo" height="400"/></span></a></span></li>
-            <li>July 1, 2024: <strong>Minimizing quasi-self-concordant functions by gradient regularization of Newton method</strong>, EURO, Copenhagen (<a href="slides/QuasiSC_EURO24.pdf">slides</a>)</li>
-            <li>June 26, 2024: <strong>Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions</strong>, EUROPT, Lund (<a href="slides/SpecPrecond_EUROPT24.pdf">slides</a>)</li>
-            <li>June 20, 2024: <strong>Polynomial Preconditioning for Gradient Methods</strong>, FGS-24, Gijón (<a href="slides/PolyPrecond_FGS24.pdf">slides</a>)</li>
-            <li>April 9, 2024: <strong>Minimizing quasi-self-concordant functions by gradient regularization of Newton method</strong>, NOPTA, University of Antwerp (<a href="slides/QuasiSC_NOPTA24.pdf">slides</a>)</li>
-            <li>August 25, 2023: <strong>Super-Universal Regularized Newton Method</strong>, EUROPT, Budapest (<a href="slides/SuperNewton_EUROPT23.pdf">slides</a>)</li>
-            <li>July 20, 2023: <strong>Second-Order Optimization with Lazy Hessians</strong>, ICML, Hawaii (<a href="slides/LazyNewton_ICML23.pdf">slides</a>, <a href="slides/LazyNewton_ICML23_poster.pdf">poster</a>, <a href="https://icml.cc/virtual/2023/oral/25472">video</a>)
-                <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/ICML23.jpg" alt="photo" height="400"/></span></a></span></li>
-            <li>July 19, 2023: <strong>Polynomial Preconditioning for Gradient Methods</strong>, ICML, Hawaii (<a href="slides/PolyPrecond_ICML23_poster.pdf">poster</a>)</li>
+                <a class="dark" href="https://sites.uclouvain.be/algopt2024/">ALGOPT</a>, Louvain-la-Neuve (<a href="https://doikov.com/slides/SpecPrecond_ALGOPT24.pdf">slides</a>) <span class="hover_img"><button type="button" aria-label="Preview photo: ALGOPT 2024, Louvain-la-Neuve">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/ALGOPT24.jpg" alt="ALGOPT 2024, Louvain-la-Neuve" height="400" loading="lazy"></span></span></li>
+            <li>July 1, 2024: <strong>Minimizing quasi-self-concordant functions by gradient regularization of Newton method</strong>, EURO, Copenhagen (<a href="https://doikov.com/slides/QuasiSC_EURO24.pdf">slides</a>)</li>
+            <li>June 26, 2024: <strong>Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions</strong>, EUROPT, Lund (<a href="https://doikov.com/slides/SpecPrecond_EUROPT24.pdf">slides</a>)</li>
+            <li>June 20, 2024: <strong>Polynomial Preconditioning for Gradient Methods</strong>, FGS-24, Gijón (<a href="https://doikov.com/slides/PolyPrecond_FGS24.pdf">slides</a>)</li>
+            <li>April 9, 2024: <strong>Minimizing quasi-self-concordant functions by gradient regularization of Newton method</strong>, NOPTA, University of Antwerp (<a href="https://doikov.com/slides/QuasiSC_NOPTA24.pdf">slides</a>)</li>
+            <li>August 25, 2023: <strong>Super-Universal Regularized Newton Method</strong>, EUROPT, Budapest (<a href="https://doikov.com/slides/SuperNewton_EUROPT23.pdf">slides</a>)</li>
+            <li>July 20, 2023: <strong>Second-Order Optimization with Lazy Hessians</strong>, ICML, Hawaii (<a href="https://doikov.com/slides/LazyNewton_ICML23.pdf">slides</a>, <a href="https://doikov.com/slides/LazyNewton_ICML23_poster.pdf">poster</a>, <a href="https://icml.cc/virtual/2023/oral/25472">video</a>)
+                <span class="hover_img"><button type="button" aria-label="Preview photo: ICML 2023, Hawaii">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/ICML23.jpg" alt="ICML 2023, Hawaii" height="400" loading="lazy"></span></span></li>
+            <li>July 19, 2023: <strong>Polynomial Preconditioning for Gradient Methods</strong>, ICML, Hawaii (<a href="https://doikov.com/slides/PolyPrecond_ICML23_poster.pdf">poster</a>)</li>
             <li>June 3, 2023: <strong>Second-Order Optimization with Lazy Hessians</strong>,
-                SIAM Conference on Optimization, Seattle (<a href="slides/LazyNewton_SIAM23.pdf">slides</a>)
-                <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/SIAM23.jpeg" alt="photo" height="400"/></span></a></span></li>
+                SIAM Conference on Optimization, Seattle (<a href="https://doikov.com/slides/LazyNewton_SIAM23.pdf">slides</a>)
+                <span class="hover_img"><button type="button" aria-label="Preview photo: SIAM Optimization 2023, Seattle">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/SIAM23.jpeg" alt="SIAM Optimization 2023, Seattle" height="400" loading="lazy"></span></span></li>
 
             <li>September 27, 2022: <strong>Super-Universal Regularized Newton Method</strong>,
-                <a class="dark" href="https://www.epfl.ch/labs/tml/">TML Laboratory</a>, EPFL (<a href="slides/SuperNewton_EPFL22.pdf">slides</a>)</li>
+                <a class="dark" href="https://www.epfl.ch/labs/tml/">TML Laboratory</a>, EPFL (<a href="https://doikov.com/slides/SuperNewton_EPFL22.pdf">slides</a>)</li>
 
             <li>July 29, 2022: <strong>Affine-invariant contracting-point methods for Convex Optimization</strong>,
                 EUROPT, Lisbon
-                (<a href="slides/ContrPoint_EUROPT22.pdf">slides</a>) </li>
+                (<a href="https://doikov.com/slides/ContrPoint_EUROPT22.pdf">slides</a>) </li>
 
             <li>June 3, 2022: <strong>Second-order methods with global convergence in Convex Optimization</strong>,
                 the research team of <a class="dark" href="https://www.esat.kuleuven.be/stadius/person.php?id=782">Panos Patrinos</a>, KULeuven
-                (<a href="slides/SecondOrder_Leuven22.pdf">slides</a>) </li>
+                (<a href="https://doikov.com/slides/SecondOrder_Leuven22.pdf">slides</a>) </li>
 
             <li>May 5, 2022: <strong>Optimization Methods for Fully Composite Problems</strong>,
                 FGP-22, Porto 
-                (<a href="slides/FullyComp_FGP22.pdf">slides</a>) </li>
+                (<a href="https://doikov.com/slides/FullyComp_FGP22.pdf">slides</a>) </li>
             <li>February 21, 2022: <strong>Second-order methods with global convergence in Convex Optimization</strong>,
-                <a class="dark" href="https://www.epfl.ch/labs/mlo/">MLO Laboratory</a>, EPFL (<a href="slides/SecondOrder_EPFL22.pdf">slides</a>)</li>
+                <a class="dark" href="https://www.epfl.ch/labs/mlo/">MLO Laboratory</a>, EPFL (<a href="https://doikov.com/slides/SecondOrder_EPFL22.pdf">slides</a>)</li>
             <li>July 7, 2021: <strong>Local convergence of tensor methods</strong>,
             EUROPT, online 
-                (<a href="slides/LocalTM_EUROPT21.pdf">slides</a>)</li>
+                (<a href="https://doikov.com/slides/LocalTM_EUROPT21.pdf">slides</a>)</li>
 
             <li>March 4, 2021: <strong>Affine-invariant contracting-point methods for Convex Optimization</strong>,
             Symposium on Numerical Analysis and Optimization
             (invited by <a class="dark" href="https://scholar.google.com/citations?user=PwH5lDEAAAAJ">Geovani Nunes Grapiglia</a>), UFPR, online 
-                (<a href="slides/ContrPoint_SympUFPR21.pdf">slides</a>)</li>
+                (<a href="https://doikov.com/slides/ContrPoint_SympUFPR21.pdf">slides</a>)</li>
             <li>October 28, 2020: <strong>Convex optimization based on global lower second-order models</strong>, NeurIPS, online
-                (<a href="slides/ContrNewton_NeurIPS20.pdf">slides</a>,
-                 <a href="slides/ContrNewton_NeurIPS20_poster.pdf">poster</a>)</li>
+                (<a href="https://doikov.com/slides/ContrNewton_NeurIPS20.pdf">slides</a>,
+                 <a href="https://doikov.com/slides/ContrNewton_NeurIPS20_poster.pdf">poster</a>)</li>
             <li>June 17, 2020: <strong>Inexact Tensor Methods with Dynamic Accuracies</strong>, ICML, online
-                (<a href="slides/InexactTensors_ICML20.pdf">slides</a>,
-                 <a href="slides/InexactTensors_ICML20_poster.pdf">poster</a>,
+                (<a href="https://doikov.com/slides/InexactTensors_ICML20.pdf">slides</a>,
+                 <a href="https://doikov.com/slides/InexactTensors_ICML20_poster.pdf">poster</a>,
                  <a href="https://slideslive.com/38928150/inexact-tensor-methods-with-dynamic-accuracies">video</a>)</li>
 
             <li>October 8, 2019: <strong>Proximal Method with Contractions for Smooth Convex Optimization</strong>, ICTEAM seminar, Louvain-la-Neuve</li>
@@ -572,38 +836,35 @@ with Approximate Hessians</strong>, VOCAL, Mosonmagyaróvár (<a href="slides/Gr
                 Optimization and Learning for Data Science seminar
                 (invited by  
                 <a class="dark" href="https://grishchenko.org/">Dmitry Grishchenko</a>) Université Grenoble Alpes, Grenoble
-            (<a href="slides/ContrProx_Grenoble19.pdf">slides</a>)
-             <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/Grenoble19.jpeg" alt="photo" height="400"/></span></a>
-            </span>
+            (<a href="https://doikov.com/slides/ContrProx_Grenoble19.pdf">slides</a>)
+             <span class="hover_img"><button type="button" aria-label="Preview photo: Grenoble 2019">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/Grenoble19.jpeg" alt="Grenoble 2019" height="400" loading="lazy"></span></span>
             </li>
             
-            <li>September 18, 2019: <strong>Complexity of Cubically Regularized Newton Method for Minimizing Uniformly Convex Functions</strong>, FGS-19, Nice (<a href="slides/UCNewton_FGS19.pdf">slides</a>)</li>
+            <li>September 18, 2019: <strong>Complexity of Cubically Regularized Newton Method for Minimizing Uniformly Convex Functions</strong>, FGS-19, Nice (<a href="https://doikov.com/slides/UCNewton_FGS19.pdf">slides</a>)</li>
             
             <li>August 5, 2019: <strong>Complexity of Cubically Regularized Newton Method for Minimizing Uniformly Convex Functions</strong>, ICCOPT, Berlin</li>
             
             <li>July 5, 2019: <strong>Randomized Block Cubic Newton Method</strong>, 
             Summer School on Optimization, Big Data and Applications, Veroli
-            <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/Veroli19.jpg" alt="photo" height="400"/></span></a></span></li>
+            <span class="hover_img"><button type="button" aria-label="Preview photo: Summer school in Veroli, 2019">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/Veroli19.jpg" alt="Summer school in Veroli, 2019" height="400" loading="lazy"></span></span></li>
             
             <li>June 28, 2019: <strong>Complexity of Cubically Regularized Newton Method for Minimizing Uniformly Convex Functions</strong> EUROPT, Glasgow
-                <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/Glasgow19.jpg" alt="photo" height="400"/></span></a></span></li>
+                <span class="hover_img"><button type="button" aria-label="Preview photo: EUROPT 2019, Glasgow">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/Glasgow19.jpg" alt="EUROPT 2019, Glasgow" height="400" loading="lazy"></span></span></li>
 
             <li>June 20, 2018: <strong>Randomized Block Cubic Newton Method</strong>, ICML, Stockholm
-                (<a href="slides/RBCN_ICML18.pdf">slides</a>, 
-                 <a href="slides/RBCN_ICML18_poster.pdf">poster</a>, 
-                 <a href="https://www.youtube.com/watch?v=_NC9sc-nXoc&t=5051">video</a>)
-             <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/ICML18.jpg" alt="photo" height="400"/></span></a></span></li>
+                (<a href="https://doikov.com/slides/RBCN_ICML18.pdf">slides</a>, 
+                 <a href="https://doikov.com/slides/RBCN_ICML18_poster.pdf">poster</a>, 
+                 <a href="https://www.youtube.com/watch?v=_NC9sc-nXoc&amp;t=5051">video</a>)
+             <span class="hover_img"><button type="button" aria-label="Preview photo: ICML 2018, Stockholm">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/ICML18.jpg" alt="ICML 2018, Stockholm" height="400" loading="lazy"></span></span></li>
 
             <li>June 13, 2018: <strong>Randomized Block Cubic Newton Method</strong>, 
             X Traditional summer school on Optimization, Voronovo 
-            <span class="hover_img"><a href="#/">[photo&darr;]<span><img src="photos/TMSH18.jpg" alt="photo" height="400"/></span></a></span></li>
-
+            <span class="hover_img"><button type="button" aria-label="Preview photo: Summer school in Voronovo, 2018">[photo↓]</button><span class="photo-preview"><img src="https://doikov.com/photos/TMSH18.jpg" alt="Summer school in Voronovo, 2018" height="400" loading="lazy"></span></span></li>
         </ul>
+        </section>
 
-        <br/>
-        <hr/>
         <div class="footer">
-        Updated: August 24, 2026
+            <span>Updated: October 26, 2026</span>
         </div>
     </div>
 </div>
